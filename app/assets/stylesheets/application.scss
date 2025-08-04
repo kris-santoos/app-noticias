@@ -1,0 +1,27 @@
+@import "bootstrap";
+
+$gray-medium-light: #EAEAEA;
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $gray-medium-light;
+  color: #6c757d;
+  a {
+    color: text-gray-100;
+    &:hover{
+      color: #212529;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
