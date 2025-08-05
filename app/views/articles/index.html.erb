@@ -1,14 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<h1 class="text-center p-5">Pesquise Notícias Mundiais</h1>
 
-<h1>Artigos</h1>
+<%= form_with url: articles_path, class: 'd-flex position-absolute start-50 translate-middle top-40', method: :get, local: true do %>
+  <%= label_tag :query, "Digite palavra-chave:", class: 'mt-2 me-2' %>
+  <%= text_field_tag :query, params[:query], class: 'me-2', placeholder: "Ex: tecnologia, economia..." %>
+  <%= submit_tag "Buscar", class: 'btn btn-outline-success' %>
+<% end %>
 
-<div id="articles">
-  <% @articles.each do |article| %>
-    <%= render article %>
-    <p>
-      <%= link_to "Mostrar artigo", article %>
-    </p>
+</br>
+<% if params[:query].present? %>
+    <hr>
+  <h2 class="text-center">Resultados:</h2>
+
+  </br>
+  <% if @external_news.any? %>
+    <% @external_news.each do |news| %>
+      <div>
+        <h3><%= news.title %></h3>
+        <p><%= news.description %></p>
+        <a href="<%= news.url %>" target="_blank">Leia mais →</a>
+      </div>
+    <% end %>
+  <% else %>
+    <p>Nenhuma notícia encontrada.</p>
   <% end %>
-</div>
+<% end %>
 
-<%= link_to "Novo Artigo", new_article_path %>

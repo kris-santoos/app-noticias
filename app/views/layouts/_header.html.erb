@@ -22,10 +22,7 @@
             <%= link_to 'Entrar', entrar_path, class: 'nav-link' %>
           </li>
         <% else %>
-        <form class="d-flex position-absolute top-50 start-50 translate-middle" role="search">
-          <input class="form-control me-2" type="search" placeholder="Procure aqui seu artigo" aria-label="Search"/>
-          <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
+        
           <li class="dropdown">
             <a href="#" class="dropdown-toggle text-decoration-none text-light" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               Bem Vindo, <%= current_user.name %> <span class="caret"></span>
