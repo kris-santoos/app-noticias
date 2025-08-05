@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   get 'sessions/new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   get 'entrar', to: 'sessions#new'
   post 'entrar', to: 'sessions#create'
   delete 'sair', to: 'sessions#destroy'
+  get 'articles', to: "articles#index"
 
   resources :users, only: [:new, :create, :show]
   

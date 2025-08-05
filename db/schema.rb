@@ -10,9 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_04_224027) do
+ActiveRecord::Schema[7.1].define(version: 2025_08_05_173917) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "article_topics", force: :cascade do |t|
+    t.bigint "article_id", null: false
+    t.bigint "topic_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_topics_on_article_id"
+    t.index ["topic_id"], name: "index_article_topics_on_topic_id"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.string "link"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,4 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_08_04_224027) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "article_topics", "articles"
+  add_foreign_key "article_topics", "topics"
+  add_foreign_key "articles", "users"
 end

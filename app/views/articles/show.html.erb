@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @article %>
+
+<div>
+  <%= link_to "Editar artigo", edit_article_path(@article) %> |
+  <%= link_to "Voltar para artigos", articles_path %>
+
+  <%= button_to "Excluir artigo", @article, method: :delete %>
+</div>

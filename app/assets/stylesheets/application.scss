@@ -8,7 +8,8 @@ footer {
   border-top: 1px solid $gray-medium-light;
   color: #6c757d;
   a {
-    color: text-gray-100;
+    color: #374151;
+    text-decoration: unset;
     &:hover{
       color: #212529;
     }
