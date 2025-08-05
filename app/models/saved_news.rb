@@ -1,0 +1,2 @@
+class SavedNews < ApplicationRecord
+end

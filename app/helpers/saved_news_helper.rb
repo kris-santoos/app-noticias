@@ -1,0 +1,2 @@
+module SavedNewsHelper
+end

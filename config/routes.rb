@@ -20,5 +20,7 @@ Rails.application.routes.draw do
   get 'articles', to: 'articles#index'
 
   resources :users, only: [:new, :create, :show]
+  resources :saved_news, only: [:create, :index]
+
   
 end
