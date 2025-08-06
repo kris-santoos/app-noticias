@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get 'entrar', to: 'sessions#new'
   post 'entrar', to: 'sessions#create'
   delete 'sair', to: 'sessions#destroy'
-  get 'articles', to: 'articles#index'
+  
+
+  resources :articles, only: [:index]
 
   resources :users, only: [:new, :create, :show]
   resources :saved_news, only: [:create, :index]
