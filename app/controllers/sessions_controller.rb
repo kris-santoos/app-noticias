@@ -10,14 +10,14 @@ class SessionsController < ApplicationController
       sign_in(user)
       redirect_to user_path(user)
     else
-      flash.now[:danger] = 'Email e Senha inválidos'
+      flash.now[:danger] = 'Email ou Senha inválido!'
       render 'new'
     end
   end
 
   def destroy
     sign_out
-    flash[:warning] = 'Logout realizado com sucesso'
+    flash[:success] = 'Logout realizado com sucesso!'
     redirect_to entrar_path
   end
 
