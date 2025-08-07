@@ -15,7 +15,7 @@
   <% if @external_news.any? %>
     <% @external_news.each do |news| %>
       <div>
-        <%= form_with model: SavedNews.new, url: saved_news_index_path, remote: true, local: false, class: "text-end" do |form| %>
+        <%= form_with model: SavedNews.new, url: saved_news_index_path, remote: true, local: false, class: "text-end mb-3" do |form| %>
           <%= form.hidden_field :title, value: news.title %>
           <%= form.hidden_field :description, value: news.description %>
           <%= form.hidden_field :url, value: news.url %>

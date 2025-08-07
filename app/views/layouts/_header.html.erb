@@ -31,10 +31,7 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <%= link_to 'Minha Página', articles_path, class: 'dropdown-item' %>
-              </li>
-              <li>
-                <%= link_to "Salvos", saved_news_index_path, class: 'dropdown-item' %>
+                <%= link_to 'Minha Página', saved_news_index_path, class: 'dropdown-item' %>
               </li>
               <li>
                 <%= link_to 'Editar', edit_user_path(current_user), class: 'dropdown-item' %>

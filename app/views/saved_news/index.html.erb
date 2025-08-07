@@ -1,14 +1,18 @@
-<h1 class="p-5 text-center">Notícias Salvas</h1>
+<h1 class="p-5 text-center">Artigos Salvos</h1>
 
-<div class="text-end mb-5">
-  <%= link_to "Voltar para artigos", articles_path, class: "btn btn-primary btn-save-news" %>
+<div class="mb-5">
+  <%= link_to "Voltar", articles_path, class: "btn btn-primary btn-save-news" %>
 </div>
 
 <% @saved_news.each do |news| %>
   <div class="mb-3">
+    <hr>
+    <div class="text-end">  
+      <%= link_to "Excluir", '#', class: "btn btn-danger" %>
+    </div>
     <h3><%= news.title %></h3>
     <p><%= news.description %></p>
-    <a href="<%= news.url %>" target="_blank">Ver original</a>
+    <a href="<%= news.url %>" target="_blank">Leia mais →</a>
   </div>
 <% end %>
 
