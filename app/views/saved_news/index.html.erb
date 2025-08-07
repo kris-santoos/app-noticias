@@ -8,7 +8,7 @@
   <div class="mb-3">
     <hr>
     <div class="text-end">  
-      <%= link_to "Excluir", '#', class: "btn btn-danger" %>
+      <%= button_to "Excluir", saved_news_path(news), method: :delete, class: "btn btn-danger" %>
     </div>
     <h3><%= news.title %></h3>
     <p><%= news.description %></p>
