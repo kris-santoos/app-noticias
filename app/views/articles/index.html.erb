@@ -14,16 +14,19 @@
   </br>
   <% if @external_news.any? %>
     <% @external_news.each do |news| %>
+      <%= puts news.inspect %>
       <div>
         <%= form_with model: SavedNews.new, url: saved_news_index_path, remote: true, local: false, class: "text-end mb-3" do |form| %>
           <%= form.hidden_field :title, value: news.title %>
           <%= form.hidden_field :description, value: news.description %>
+          <%= form.hidden_field :source, value: news.name %>
           <%= form.hidden_field :url, value: news.url %>
           <%= form.submit "Ler mais tarde", class: "btn btn-primary btn-save-news" %>
         <% end %>
 
         <h3><%= news.title %></h3>
         <p><%= news.description %></p>
+        <p><strong>Fonte:</strong> <%= news.name %></p>
         <a href="<%= news.url %>" target="_blank">Leia mais →</a>
         <hr>
 
@@ -32,5 +35,16 @@
   <% else %>
     <p>Nenhuma notícia encontrada.</p>
   <% end %>
+<% end %>
+
+<% if @external_news.any? %>
+  <% page = (params[:page] || 1).to_i %>
+  <div class="pagination mt-3">
+    <% if page > 1 %>
+      <%= link_to "← anterior", articles_path(query: params[:query], page: page - 1), class: "btn btn-secondary me-2" %>
+    <% end %>
+
+    <%= link_to "próximo →", articles_path(query: params[:query], page: page + 1), class: "btn btn-secondary" %>
+  </div>
 <% end %>
 

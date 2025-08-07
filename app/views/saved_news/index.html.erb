@@ -1,4 +1,4 @@
-<h1 class="p-5 text-center">Artigos Salvos</h1>
+<h1 class="p-5 text-center">Meus Artigos</h1>
 
 <div class="mb-5">
   <%= link_to "Voltar", articles_path, class: "btn btn-primary btn-save-news" %>
@@ -8,10 +8,11 @@
   <div class="mb-3">
     <hr>
     <div class="text-end">  
-      <%= button_to "Excluir", saved_news_path(news), method: :delete, class: "btn btn-danger" %>
+      <%= button_to "Remover", saved_news_path(news), method: :delete, class: "btn btn-danger" %>
     </div>
     <h3><%= news.title %></h3>
     <p><%= news.description %></p>
+    <p><strong>Fonte:</strong> <%= news.source %></p>
     <a href="<%= news.url %>" target="_blank">Leia mais →</a>
   </div>
 <% end %>
