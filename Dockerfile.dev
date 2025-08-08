@@ -1,0 +1,34 @@
+# syntax = docker/dockerfile:1
+
+FROM ruby:3.2.2-slim
+
+WORKDIR /rails
+
+ENV RAILS_ENV=development \
+    BUNDLE_PATH="/usr/local/bundle"
+
+# Instala pacotes necessários para Ruby, Node, Yarn, Postgres e imagem
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y \
+    build-essential git libvips pkg-config nodejs yarn sqlite3 libsqlite3-dev postgresql-client && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Copia Gemfile e instala gems
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
+# Copia código da aplicação
+COPY . .
+
+# Garante que o script rails é executável
+RUN chmod +x ./bin/rails
+
+# Copia o script entrypoint.sh para o container
+COPY entrypoint.sh /usr/bin/entrypoint.sh
+RUN chmod +x /usr/bin/entrypoint.sh
+
+EXPOSE 3000
+
+ENTRYPOINT ["/usr/bin/entrypoint.sh"]
+
+CMD ["./bin/rails", "server", "-b", "0.0.0.0"]

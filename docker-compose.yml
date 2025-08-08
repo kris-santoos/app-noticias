@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "@98971526@"
+      POSTGRES_DB: app_noticias_development
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev   
+    command: bash -c "rm -f tmp/pids/server.pid && ./bin/rails server -b 0.0.0.0"
+    volumes:
+      - .:/rails                  
+      - bundle-data:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: development
+      DATABASE_HOST: db
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: "@98971526@"
+    depends_on:
+      - db
+
+volumes:
+  db-data:
+  bundle-data:

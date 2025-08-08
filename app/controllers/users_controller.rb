@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             flash[:success] = "Usuário cadastrado com sucesso!"
-            redirect_to root_url
+            redirect_to entrar_url
         else
             render 'new'
         end
