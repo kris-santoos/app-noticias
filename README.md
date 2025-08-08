@@ -52,6 +52,7 @@ Crie e migre o banco dentro do container Docker com os comandos:
 docker-compose run web rails db:create
 docker-compose run web rails db:migrate
 ```
+Dica: Para visualizar e gerenciar o banco de dados de forma gráfica, você pode usar ferramentas como o Navicat, que facilita a navegação pelas tabelas e dados do PostgreSQL.
 
 ### Execute a aplicação
 Para rodar a aplicação via Docker Compose, use:
@@ -65,3 +66,11 @@ Para parar os containers, use:
 ```shell
 docker-compose down
 ```
+
+Observação:
+Se você optar por rodar o projeto localmente (fora do Docker), certifique-se de que o serviço PostgreSQL esteja ativo.
+No Linux, você pode iniciar o serviço com:
+```shell
+sudo service postgresql start
+```
+No Windows/Mac, inicie o serviço via painel de controle ou preferências do sistema.
