@@ -8,13 +8,12 @@
 
 </br>
 <% if params[:query].present? %>
-    <hr>
+  <hr>
   <h2 class="text-center">Resultados:</h2>
 
   </br>
   <% if @external_news.any? %>
     <% @external_news.each do |news| %>
-      <%= puts news.inspect %>
       <div>
         <%= form_with model: SavedNews.new, url: saved_news_index_path, remote: true, local: false, class: "text-end mb-3" do |form| %>
           <%= form.hidden_field :title, value: news.title %>
