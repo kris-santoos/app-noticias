@@ -13,7 +13,7 @@ class SavedNewsController < ApplicationController
       respond_to do |format|
         format.html do
           flash[:success] = "Artigo salvo com sucesso!"
-          redirect_to articles_path
+           redirect_back fallback_location: root_path
         end
 
         format.js 
@@ -24,12 +24,12 @@ class SavedNewsController < ApplicationController
         if @saved_news.errors.full_messages.any? { |msg| msg.include?("Url já cadastrado") }
           format.html do
             flash[:danger] = "Esse artigo já foi salvo."
-            redirect_to articles_path
+             redirect_back fallback_location: root_path
           end
         else
           format.html do
             flash[:danger] = "Erro ao salvar artigo."
-            redirect_to articles_path
+             redirect_back fallback_location: root_path
           end
 
           format.js
