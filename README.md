@@ -2,6 +2,11 @@
 
 Gerencie seus artigos de notícias mundiais de onde você quiser. Use o KNews! Projeto desenvolvido para facilitar o aprendizado prático de Ruby on Rails, focado em boas práticas e funcionalidades comuns em aplicações web.
 
+Ruby on Rails  
+Sistema de modelagem com ERB (implementação própria para autenticação)  
+Front-end com Bootstrap  
+Banco de dados PostgreSQL  
+
 ## Requisitos Necessários:
 
 * Docker (versão `26.1.3` ou superior)
@@ -15,6 +20,15 @@ Gerencie seus artigos de notícias mundiais de onde você quiser. Use o KNews! P
 - Login de Usuário  
 - Gerenciamento de artigos de notícias  
 - Customização do perfil  
+
+## API Utilizada
+A aplicação utiliza a API NewsAPI.
+
+## Suposições e Decisões de Design
+* O projeto foi criado com foco em uma interface intuitiva e amigável para facilitar a pesquisa e o gerenciamento de artigos de notícias.
+* Inclusão da funcionalidade de salvar artigos para leitura posterior, proporcionando maior comodidade e personalização para os usuários.
+* Adoção do Docker para garantir um ambiente de desenvolvimento consistente, simplificando a configuração e implantação da aplicação.
+* Utilização do PostgreSQL como banco de dados padrão, assegurando robustez e escalabilidade.
 
 ## Para executar o projeto:
 
