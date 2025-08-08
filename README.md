@@ -1,6 +1,6 @@
 # KNews
 
-Gerencie sua agenda de contatos onde você quiser. Use o Contact List! Projeto criado com o objetivo de ensinar Ruby on Rails a programadores de outras linguagens no curso [Ruby on Rails 5 na prática](https://www.udemy.com/ruby-on-rails-5-na-pratica).
+Gerencie seus artigos de notícias mundiais de onde você quiser. Use o KNews! Projeto desenvolvido para facilitar o aprendizado prático de Ruby on Rails, focado em boas práticas e funcionalidades comuns em aplicações web.
 
 ## Requisitos Necessários:
 
